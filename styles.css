@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7e9ea;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.progress-circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#880bea 50deg, #ededed 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+}
+
+.progress-circular::after {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #ededed;
+}
+
+.value {
+  font-size: 60px;
+  font-weight: 600;
+  color: #880bea;
+  z-index: 1;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 10px;
+  color: #333;
+}
+
+input[type='number'] {
+  width: 50px;
+  height: 30px;
+  font-size: 14px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+input[type='number']:focus {
+  border-color: #4caf50;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  background: #e6e6e6;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: all 0.3s;
+}
+input[type='checkbox']:checked {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+}
+input[type='checkbox']:checked::before {
+  left: 20px;
+}
+
+
+@media screen and (min-width:520px) {
+  .progress-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    max-width: 568px;
+  }
+
+  .controls {
+    align-items: flex-start;
+  }
+}
